@@ -1,4 +1,4 @@
-## PPLS-Voicr-Recognition-Speaker
+## PPLS-Voice-Recognition-Speaker
 
 A high-performance, open-source speaker recognition ecosystem optimized for identifying stars, athletes, and crowdsourced voices. This repository bridges advanced PyTorch deep learning embeddings (⁠ecapa-voxceleb⁠), a custom C++ AVX-512 vector-matching engine, EVM-compatible blockchain anchoring on Monad, and professional Digital Audio Workstation (DAW) telemetry for FL Studio and Pro Tools.
 
