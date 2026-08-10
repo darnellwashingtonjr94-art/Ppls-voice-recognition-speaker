@@ -1,0 +1,17 @@
+# CLAUDE.md - Project Guidelines for ppls-voice-recognition-speaker
+
+## Overview
+High-performance speaker recognition system identifying stars, athletes, and public voices via PyTorch embeddings, a custom C++ AVX-512 matching engine, an EVM blockchain anchor, and professional DAW telemetry (FL Studio / Pro Tools plugins).
+
+## Tech Stack
+- **AI/ML:** Python 3.11, PyTorch, SpeechBrain (ECAPA-TDNN), Silero VAD
+- **Engine Core:** C++17, AVX-512 vectorization, Pybind11 bindings (`fast_matcher`)
+- **API & Daemon:** FastAPI, Uvicorn, SQLite vector index
+- **Smart Contracts:** Solidity 0.8.19, Hardhat, Monad EVM
+- **DAW Telemetry:** VST3 / AAX real-time audio thread telemetry specs
+
+## Development Commands
+- **Setup Environment:** `./scripts/init_all.sh`
+- **Build C++ Engine:** `./scripts/build_engine.sh`
+- **Run Tests:** `pytest tests/ -v`
+- **Start API Daemon:** `uvicorn src.api:app --reload`
