@@ -37,4 +37,6 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/ppls-voice-recognition-speaker:latest
+          tags: |
+            credkellar/ppls-voice-recognition-speaker:latest
+            credkellar/ppls-voice-recognition-speaker:${{ github.ref_name }}
