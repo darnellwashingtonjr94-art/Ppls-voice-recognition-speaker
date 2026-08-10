@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  voice-engine:
+    build: .
+    container_name: ppls-voice-engine
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/app/data
+    environment:
+      - DB_PATH=/app/data/voiceprints.db
+      - PYTHONUNBUFFERED=1
+    restart: unless-stopped
