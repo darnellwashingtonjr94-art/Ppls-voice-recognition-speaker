@@ -1,21 +1,29 @@
-FROM python:3.11-slim
+# Base image with CUDA support for accelerated audio processing
+FROM nvidia/cuda:12.1.1-runtime-ubuntu22.04
+
+# Prevent interactive prompts during installation
+ENV DEBIAN_FRONTEND=noninteractive
+
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    python3 \
+    python3-pip \
+    ffmpeg \
+    git \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
 
-# Install system dependencies for audio processing
-RUN apt-get update && apt-get install -y \
-    ffmpeg \
-    libsndfile1 \
-    && rm -rf /var/lib/apt/lists/*
-
+# Copy dependency manifest and install Python packages
 COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip3 install --no-cache-dir -r requirements.txt
 
-# Pre-download models to bake them into the image
-RUN python -c "from silero_vad import load_silero_vad; load_silero_vad()"
-RUN python -c "from speechbrain.pretrained import EncoderClassifier; EncoderClassifier.from_hparams(source='speechbrain/spkrec-ecapa-voxceleb')"
+# Copy source scripts into the runtime workspace
+COPY . /app/
 
-COPY . .
+# Environment variables
+ENV PYTHONUNBUFFERED=1
 
-EXPOSE 8000
-CMD ["uvicorn", "src.api:app", "--host", "0.0.0.0", "--port", "8000"]
+# Entrypoint for job orchestration
+CMD ["python3", "deploy_serverless.py"]
