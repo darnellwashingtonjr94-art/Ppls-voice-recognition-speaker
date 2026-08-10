@@ -1,6 +1,9 @@
 <div align="center">
 
-IMG_3932.png
+
+<p align="center">
+  <img src="IMG_3932.png" alt="Profile Image" width="400"/>
+</p>
 
 # 🎼🌐 Ppls-Voice-Recognition-Speaker
 
