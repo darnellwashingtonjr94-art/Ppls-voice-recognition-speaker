@@ -6,3 +6,7 @@ numpy>=1.24.0
 pandas>=2.0.0
 huggingface-hub
 hyperpyyaml
+google-genai
+infer_rvc_python
+scipy
+numpy
