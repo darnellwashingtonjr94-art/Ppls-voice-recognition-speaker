@@ -1,6 +1,8 @@
 <div align="center">
 
-# 🎼🌐 ppls-voice-recognition-speaker
+IMG_3932.png
+
+# 🎼🌐 Ppls-Voice-Recognition-Speaker
 
 A high-performance, open-source speaker recognition ecosystem optimized for identifying stars, athletes, and crowdsourced voices. 
 
