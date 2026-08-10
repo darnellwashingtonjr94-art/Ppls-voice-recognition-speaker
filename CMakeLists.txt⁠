@@ -1,0 +1,10 @@
+cmake_minimum_required(VERSION 3.15)
+project(fast_matcher)
+
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3 -march=native -mavx512f")
+
+# Find Pybind11
+find_package(pybind11 REQUIRED)
+
+pybind11_add_module(fast_matcher core/bindings.cpp)
