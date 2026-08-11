@@ -1,4 +1,4 @@
-name: CI Pipeline
+name: CI Pipeline / build-and-push
 
 on:
   push:
@@ -19,7 +19,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          python -m pip install --upgrade pip
+          python -m pip install "pip<24.1"
           pip install -r requirements.txt
 
       - name: Run syntax and import checks
